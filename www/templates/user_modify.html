@@ -1,0 +1,92 @@
+<html>
+    <title>회원정보 수정</title>
+    <head>
+        <script>
+            function validateForm() {
+                if (document.forms["userForm"]["name"].value == "") {
+                    alert("이름을 입력하세요");
+                    document.forms["userForm"]["name"].focus();
+
+                    return false;
+                }
+                if(document.forms["userForm"]["tel"].value == "") {
+                    alert("전화번호를 입력하세요");
+                    document.forms["userForm"]["tel"].focus();
+
+                    return false;
+                }
+                if(isNaN(document.forms["userForm"]["tel"].value)) {
+                    alert("숫자로 입력하세요");
+                    document.getElementById("telNum").value ='';
+                    document.forms["userForm"]["tel"].focus();
+
+                    return false;
+                }
+                if(document.forms["userForm"]["birthday"].value == "") {
+                    alert("생년월일을 입력하세요");
+                    document.forms["userForm"]["birthday"].focus();
+
+                    return false;
+                }
+                if(isNaN(document.forms["userForm"]["birthday"].value)) {
+                    alert("생년월일을 숫자로 입력하세요");
+                    document.getElementById("birthdayNum").value ='';
+                    document.forms["userForm"]["birthday"].focus();
+
+                    return false;
+                }
+                if(document.forms["userForm"]["birthday"].value.length!=8) {
+                    alert("생년월일은 8자리로 입력하세요");
+                    document.getElementById("birthdayNum").value ='';
+                    document.forms["userForm"]["birthday"].focus();
+
+                    return false;
+                }
+                if(document.forms["userForm"]["email"].value == "") {
+                    alert("생년월일을 입력하세요");
+                    document.forms["userForm"]["email"].focus();
+
+                    return false;
+                }
+                if(document.forms["userForm"]["address"].value == "") {
+                    alert("생년월일을 입력하세요");
+                    document.forms["userForm"]["address"].focus();
+
+                    return false;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h1>회원정보 수정</h1>
+
+        * 현재포인트 : {% print(userData[7]) %}pt<br>
+        * 누적포인트 : {% print(userData[8]) %}pt<br>
+        * 등급 : {% print(userData[9]) %}등급<br><br>
+
+        <hr width="50%" align="left">
+        <br>
+
+        <form name="userForm" action="/nmodify_result.html" onsubmit="return validateForm1()" method="post">
+            <input type="hidden" name="user_id" value="{% print(userData[0]) %}">
+            <input type="hidden" name="name" value="{% print(userData[1]) %}">
+            <input type="hidden" name="user_hpoint" value="{% print(userData[7]) %}">
+            <input type="hidden" name="user_npoint" value="{% print(userData[8]) %}">
+            <input type="hidden" name="user_grade" value="{% print(userData[9]) %}">
+
+            <p>아이디 : {% print(userData[0]) %}</p>
+            <p>이름 : {% print(userData[1]) %}</p>
+            <p>전화번호 : <input type="text" name="tel" id="telNum" size="10" maxlength="11" value="{% print(userData[2]) %}" placeholder="{% print(userTel) %}"> (숫자만 입력하세요)</p>
+            <p>성별 : 남자 <input type="radio" name="gender" value="m" checked> 여자 <input type="radio" name="gender" value="f"></p>
+            <p>생년월일 : <input type="text" name="birthday" id="birthdayNum" size="10" maxlength="8" value="{% print(userData[4]) %}" placeholder="20021224"> (숫자만 입력하세요)</p>
+            <p>이메일 : <input type="text" name="email" size="20" value="{% print(userData[5]) %}" placeholder="{% print(userData[5]) %}"></p>
+            <p>주소 : <input type="text" name="address" size="36" value="{% print(userData[6]) %}" placeholder="{% print(userData[6]) %}"></p>
+            <!--p>비밀번호 : <input type="password" name="passwd" size="10"></p-->
+            <br>
+          
+            <input type="submit" value="전송">
+            <input type="reset" value="다시작성">
+          
+          </form>
+    </body>
+</html>
