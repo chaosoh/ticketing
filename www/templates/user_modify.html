@@ -60,27 +60,27 @@
     <body>
         <h1>회원정보 수정</h1>
 
-        * 현재포인트 : {% print(userData[7]) %}pt<br>
-        * 누적포인트 : {% print(userData[8]) %}pt<br>
-        * 등급 : {% print(userData[9]) %}등급<br><br>
+        * 현재포인트 : {% print(userData.tic_mbr_hpoint) %}pt<br>
+        * 누적포인트 : {% print(userData.tic_mbr_npoint) %}pt<br>
+        * 등급 : {% print(userData.tic_mbr_grade) %}등급<br><br>
 
         <hr width="50%" align="left">
         <br>
 
         <form name="userForm" action="/nmodify_result.html" onsubmit="return validateForm1()" method="post">
-            <input type="hidden" name="user_id" value="{% print(userData[0]) %}">
-            <input type="hidden" name="name" value="{% print(userData[1]) %}">
-            <input type="hidden" name="user_hpoint" value="{% print(userData[7]) %}">
-            <input type="hidden" name="user_npoint" value="{% print(userData[8]) %}">
-            <input type="hidden" name="user_grade" value="{% print(userData[9]) %}">
+            <input type="hidden" name="user_id" value="{% print(userData.tic_mbr_usrid) %}">
+            <input type="hidden" name="name" value="{% print(userData.tic_mbr_name) %}">
+            <input type="hidden" name="user_hpoint" value="{% print(userData.tic_mbr_hpoint) %}">
+            <input type="hidden" name="user_npoint" value="{% print(userData.tic_mbr_npoint) %}">
+            <input type="hidden" name="user_grade" value="{% print(userData.tic_mbr_grade) %}">
 
-            <p>아이디 : {% print(userData[0]) %}</p>
-            <p>이름 : {% print(userData[1]) %}</p>
-            <p>전화번호 : <input type="text" name="tel" id="telNum" size="10" maxlength="11" value="{% print(userData[2]) %}" placeholder="{% print(userTel) %}"> (숫자만 입력하세요)</p>
+            <p>아이디 : {% print(userData.tic_mbr_usrid) %}</p>
+            <p>이름 : {% print(userData.tic_mbr_name) %}</p>
+            <p>전화번호 : <input type="text" name="tel" id="telNum" size="14" maxlength="11" value="{% print(userData.tic_mbr_tel) %}" placeholder="{% print(userData.tic_mbr_tell) %}"></p>
             <p>성별 : 남자 <input type="radio" name="gender" value="m" checked> 여자 <input type="radio" name="gender" value="f"></p>
-            <p>생년월일 : <input type="text" name="birthday" id="birthdayNum" size="10" maxlength="8" value="{% print(userData[4]) %}" placeholder="20021224"> (숫자만 입력하세요)</p>
-            <p>이메일 : <input type="text" name="email" size="20" value="{% print(userData[5]) %}" placeholder="{% print(userData[5]) %}"></p>
-            <p>주소 : <input type="text" name="address" size="36" value="{% print(userData[6]) %}" placeholder="{% print(userData[6]) %}"></p>
+            <p>생년월일 : <input type="text" name="birthday" id="birthdayNum" size="10" maxlength="8" value="{% print(userData.tic_mbr_bthday) %}" placeholder=""></p>
+            <p>이메일 : <input type="text" name="email" size="20" value="{% print(userData.tic_mbr_email) %}" placeholder="{% print(userData.tic_mbr_email) %}"></p>
+            <p>주소 : <input type="text" name="address" size="46" value="{% print(userData.tic_mbr_addr) %}" placeholder="{% print(userData.tic_mbr_addr) %}"></p>
             <!--p>비밀번호 : <input type="password" name="passwd" size="10"></p-->
             <br>
           

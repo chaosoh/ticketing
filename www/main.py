@@ -13,8 +13,12 @@ conn = pymysql.connect(host='localhost',
 
 #cursor = conn.cursor()
 
-@app.route('/nmodify.html')
+@app.route('/')
 def index():
+    return render_template('index.html')
+    
+@app.route('/nmodify.html')
+def modify():
     userId = "hong"
 
     cursor1 = conn.cursor()
