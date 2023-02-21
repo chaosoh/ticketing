@@ -13,10 +13,10 @@ def create_app():
     # ORM
     db.init_app(app)
 
-    from .views import main_views, user_modify, user_list#, refund
+    from .views import main_views, user_modify, user_list, refund
     app.register_blueprint(main_views.bp)
     app.register_blueprint(user_list.bp)
     app.register_blueprint(user_modify.bp)
-    #app.register_blueprint(refund.bp)
+    app.register_blueprint(refund.bp)
 
     return app
